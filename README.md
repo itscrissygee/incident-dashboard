@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Incident Analysis Dashboard Documentation
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+Created a comprehensive dashboard to monitor and analyze incident reporting performance across multiple shifts and analysts. The dashboard focuses on key metrics including Click-Through Rate (CTR), accuracy scores, and response times.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Key Features
+
+### 1. Real-Time Performance Metrics
+
+- **Click-Through Rate (CTR)**: Target range 75-85%
+- **Accuracy Score**: Tracking title, body, and address accuracy
+- **Response Time**: Average time to process incidents
+- **Critical Incidents**: High-priority situation monitoring
+
+### 2. Interactive Filtering
+
+- Time frame selection (Day/Week/Month)
+- Shift-based filtering (Morning/Afternoon/Overnight)
+- Real-time data updates
+
+### 3. Performance Analysis
+
+- Individual analyst performance tracking
+- Comparative metrics across shifts
+- Top performer recognition
+- Quality score tracking
+
+## Technical Implementation
+
+### Data Structure
+
+```javascript
+{
+  shift: string,
+  incidents_processed: number,
+  title_accuracy: number,
+  body_relevance: number,
+  address_accuracy: number,
+  click_through_rate: number,
+  response_time: number,
+  critical_incidents: number
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Visualization Choices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Line Charts**: Used for tracking trends over time
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   - Allows easy comparison of multiple metrics
+   - Shows patterns across shifts
 
-## Learn More
+2. **Bar Charts**: Used for analyst performance
 
-To learn more about Next.js, take a look at the following resources:
+   - Easy comparison across team members
+   - Multiple metrics per analyst
+   - Clear visualization of top performers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Metric Cards**: Key performance indicators
+   - Quick view of critical metrics
+   - Trend indicators
+   - Comparison with previous periods
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## User Experience Considerations
 
-## Deploy on Vercel
+1. **Information Hierarchy**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - Most important metrics displayed prominently
+   - Logical grouping of related metrics
+   - Clear visual separation of different data types
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Interactive Elements**
+
+   - Intuitive filtering options
+   - Responsive design
+   - Tooltip information for detailed data
+
+3. **Performance Monitoring**
+   - Real-time updates
+   - Historical comparison
+   - Anomaly highlighting
+
+## Future Enhancements
+
+1. Add date range selection
+2. Implement shift-specific KPI targets
+3. Add export functionality
+4. Include trend analysis
+5. Add alert system for metric thresholds
